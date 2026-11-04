@@ -108,6 +108,20 @@ h3 { font-size: 1.15rem; margin-bottom: 8px; }
   background: linear-gradient(135deg, #0f1a2e, #13243d);
   border-bottom: 1px solid var(--border);
 }
+/* Aperçu du tract (vignette d'une page A4) */
+.card .tract-thumb {
+  display: block; position: relative; overflow: hidden; background: #fff;
+}
+.card .tract-thumb iframe {
+  position: absolute; top: 0; left: 50%; width: 794px; height: 1123px; border: 0;
+  transform: translateX(-50%) scale(.42); transform-origin: top center; pointer-events: none;
+}
+.card .tract-thumb::after {
+  content: "Voir le tract"; position: absolute; inset: 0; display: grid; place-items: center;
+  background: rgba(11, 15, 23, .6); color: var(--accent); font-family: var(--sans); font-size: 1rem;
+  font-weight: 700; opacity: 0; transition: opacity .2s;
+}
+.card .tract-thumb:hover::after { opacity: 1; }
 .card .body { padding: 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
 .card p { color: var(--muted); font-size: .94rem; }
 .card .links { margin-top: auto; display: flex; flex-direction: column; gap: 4px; padding-top: 6px; }
